@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useStore } from '../store';
 import { Product } from '../types';
@@ -10,12 +9,15 @@ const ProductDetailsPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const { addItemToCart } = useStore();
 
+  const productData = {
+    id: 1,
+    name: 'Product 1',
+    description: 'This is product 1',
+    image: 'https://example.com/product1.jpg'
+  };
+
   useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await axios.get(`https://api.example.com/products/${id}`);
-      setProduct(response.data);
-    };
-    fetchProduct();
+    setProduct(productData);
   }, [id]);
 
   const handleAddToCart = () => {
