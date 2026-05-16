@@ -10,10 +10,10 @@ const ProductDetailsPage = () => {
   const { addItemToCart } = useStore();
 
   const productData = {
-    id: 1,
-    name: 'Product 1',
-    description: 'This is product 1',
-    image: 'https://example.com/product1.jpg'
+    id: parseInt(id),
+    name: 'Product ' + id,
+    description: 'This is product ' + id,
+    image: 'https://example.com/product' + id + '.jpg'
   };
 
   useEffect(() => {
